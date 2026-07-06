@@ -1,0 +1,239 @@
+/* TimetableGenerator.css */
+
+/* ── Reset / Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.tg-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f4fd 0%, #f0f9f0 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #2c3e50;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.tg-header {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: white;
+  padding: 32px 20px;
+  text-align: center;
+}
+.tg-header h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 8px; }
+.tg-header p  { font-size: 1rem; opacity: 0.85; }
+
+/* ── Main layout ──────────────────────────────────────────── */
+.tg-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.tg-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+}
+.tg-card h2 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+/* ── Form grid ────────────────────────────────────────────── */
+.tg-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.tg-field-full { grid-column: 1 / -1; }
+
+.tg-field { display: flex; flex-direction: column; gap: 6px; }
+.tg-field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #34495e;
+}
+.tg-hint { font-weight: 400; color: #95a5a6; font-size: 0.8rem; }
+
+.tg-field input {
+  padding: 11px 14px;
+  border: 1.5px solid #dde3ea;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  color: #2c3e50;
+}
+.tg-field input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.15);
+}
+
+/* ── Subject chips preview ────────────────────────────────── */
+.tg-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.tg-chip {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2c3e50;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ── Error ────────────────────────────────────────────────── */
+.tg-error {
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: #fde8e8;
+  color: #c0392b;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 4px solid #e74c3c;
+}
+
+/* ── Action buttons ───────────────────────────────────────── */
+.tg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.tg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+}
+.tg-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.tg-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.tg-btn-primary  { background: #3498db; color: white; }
+.tg-btn-secondary{ background: #27ae60; color: white; }
+.tg-btn-pdf      { background: #e74c3c; color: white; }
+
+/* ── Spinner ──────────────────────────────────────────────── */
+.tg-spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: tg-spin 0.7s linear infinite;
+}
+@keyframes tg-spin { to { transform: rotate(360deg); } }
+
+/* ── Result card ──────────────────────────────────────────── */
+.tg-result-header { margin-bottom: 16px; }
+.tg-result-header h2 { border-bottom: none; margin-bottom: 4px; }
+.tg-class-badge {
+  background: #3498db;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+.tg-meta { font-size: 0.85rem; color: #7f8c8d; }
+
+/* ── Legend ───────────────────────────────────────────────── */
+.tg-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.tg-legend-item {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2c3e50;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* ── Table ────────────────────────────────────────────────── */
+.tg-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e8ecf0;
+}
+
+.tg-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.tg-table thead tr {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+}
+.tg-table th {
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+.tg-th-day { text-align: left; min-width: 110px; }
+
+.tg-day-cell {
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  background: #f8fafc;
+  border-right: 2px solid #e8ecf0;
+  white-space: nowrap;
+}
+
+.tg-subject-cell {
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c3e50;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: filter 0.15s;
+}
+.tg-subject-cell:hover { filter: brightness(0.93); }
+
+.tg-row-even { background: #fafbfc; }
+.tg-row-odd  { background: white; }
+
+/* ── Saved note ───────────────────────────────────────────── */
+.tg-saved-note {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: #27ae60;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tg-card { padding: 20px 16px; }
+  .tg-form-grid { grid-template-columns: 1fr; }
+  .tg-field-full { grid-column: 1; }
+  .tg-actions { flex-direction: column; }
+  .tg-btn { justify-content: center; }
+  .tg-table th, .tg-table td { padding: 8px 6px; font-size: 0.78rem; }
+}
